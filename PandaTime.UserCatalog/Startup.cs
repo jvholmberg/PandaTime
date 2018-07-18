@@ -29,6 +29,19 @@ namespace PandaTime.UserCatalog
         {
             var connectionString = Configuration.GetConnectionString("DatabaseConnection");
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CrossOriginRequest",
+                    builder =>
+                    {
+                        builder
+                        .AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader()
+                        .AllowCredentials();
+                    });
+            });
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddEntityFrameworkNpgsql().AddDbContext<BaseContext>(opt => opt.UseNpgsql(connectionString));
         }
@@ -46,6 +59,7 @@ namespace PandaTime.UserCatalog
             }
 
             app.UseHttpsRedirection();
+            app.UseCors("CrossOriginRequest");
             app.UseMvc();
         }
     }
