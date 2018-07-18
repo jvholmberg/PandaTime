@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace PandaTime.UserCatalog.Models
 {
-    public class UserContext : DbContext
+    public class BaseContext : DbContext
     {
         public DbSet<Group> Groups { get; set; }
         public DbSet<User> Users { get; set; }
@@ -13,42 +13,33 @@ namespace PandaTime.UserCatalog.Models
         public DbSet<Post> Posts { get; set; }
         public DbSet<Comment> Comments { get; set; }
 
-        public UserContext(DbContextOptions<UserContext> options)
+        public BaseContext(DbContextOptions<BaseContext> options)
             : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             Group.SetupModel(modelBuilder);
             User.SetupModel(modelBuilder);
-            Language.SetupModel(modelBuilder);
+            Language.ConfigureTable(modelBuilder);
             Membership.SetupModel(modelBuilder);
             Role.SetupModel(modelBuilder);
             Post.SetupModel(modelBuilder);
             Comment.SetupModel(modelBuilder);
+
+            Group.CreateSeed(modelBuilder);
+            User.CreateSeed(modelBuilder);
+            Language.CreateSeed(modelBuilder);
+            Membership.CreateSeed(modelBuilder);
+            Role.CreateSeed(modelBuilder);
+            Post.CreateSeed(modelBuilder);
+            Comment.CreateSeed(modelBuilder);
+
         }
 
-        private void SeedDatabase(ModelBuilder modelBuilder)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            // Seed Database
-            //Language languageSeed = new Language
-            //{
-            //    Name = "English",
-            //    Code = "en",
+            base.OnConfiguring(optionsBuilder);
 
-            //};
-
-            //User userSeed = new User
-            //{
-            //    Email = "admin@forkyfork.com",
-            //    Password = "admin",
-            //    FirstName = "Johan",
-            //    LastName = "Holmberg",
-            //    Activated = true,
-            //    Language = null
-            //};
-
-
-            //modelBuilder.Entity<User>().HasData(userSeed);
         }
     }
 }

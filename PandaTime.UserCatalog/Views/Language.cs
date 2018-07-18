@@ -1,10 +1,10 @@
 ﻿using System;
 namespace PandaTime.UserCatalog.Views
 {
-    public class Language
+    public class Language : BaseObject
     {
-        public Language()
-        {
-        }
+        public string Name { get; set; }
+        public string Code { get; set; }
+        public bool Default { get; set; }
     }
 }

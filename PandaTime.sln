@@ -1,7 +1,9 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PandaTime.Web", "PandaTime.Web\PandaTime.Web.csproj", "{BD53D3BF-641A-473D-83F0-D9CBE36764F6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PandaTime.Core", "PandaTime.Core\PandaTime.Core.csproj", "{2AE34AAC-29B0-4212-B419-45EE74092272}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PandaTime.UserCatalog", "PandaTime.UserCatalog\PandaTime.UserCatalog.csproj", "{E63CABFC-5A68-4352-9DEF-9D3A19D2F46A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,9 +11,13 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{BD53D3BF-641A-473D-83F0-D9CBE36764F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BD53D3BF-641A-473D-83F0-D9CBE36764F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BD53D3BF-641A-473D-83F0-D9CBE36764F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BD53D3BF-641A-473D-83F0-D9CBE36764F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AE34AAC-29B0-4212-B419-45EE74092272}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AE34AAC-29B0-4212-B419-45EE74092272}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AE34AAC-29B0-4212-B419-45EE74092272}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AE34AAC-29B0-4212-B419-45EE74092272}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E63CABFC-5A68-4352-9DEF-9D3A19D2F46A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E63CABFC-5A68-4352-9DEF-9D3A19D2F46A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E63CABFC-5A68-4352-9DEF-9D3A19D2F46A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E63CABFC-5A68-4352-9DEF-9D3A19D2F46A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

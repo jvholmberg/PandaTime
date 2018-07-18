@@ -1,18 +1,18 @@
 ﻿using System;
 namespace PandaTime.UserCatalog.Exceptions
 {
-    public class UserException : Exception
+    public class CustomException : Exception
     {
-        public UserException()
+        public CustomException()
         {
         }
 
-        public UserException(string message)
+        public CustomException(string message)
             : base(message)
         {
         }
 
-        public UserException(string message, Exception innerException)
+        public CustomException(string message, Exception innerException)
             : base(message, innerException)
         {
         }

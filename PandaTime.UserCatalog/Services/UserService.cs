@@ -1,39 +1,39 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using PandaTime.UserCatalog.Models;
 
 namespace PandaTime.UserCatalog.Services
 {
-    public class RoleService
+    public class UserService
     {
-        private readonly BaseContext _Context;
+        private readonly Models.BaseContext _Context;
 
-        public RoleService(BaseContext context)
+        public UserService(Models.BaseContext context)
         {
             _Context = context;
         }
 
-        public async Task<Role> GetSingle(string name)
+        public IEnumerable<Views.User> GetAll()
         {
             try
             {
-                var role = await _Context.Roles.SingleOrDefaultAsync(x => x.Name == name);
-                return role;
+                var users = _Context.Users.ToList();
+                return users.Select(x => new Views.User(x, _Context));
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
-
-        public IEnumerable<Role> GetAll()
+        public Views.User GetById(int id)
         {
+
             try
             {
-                var roles = _Context.Roles;
-                return roles;
+                var user = _Context.Users.Find(id);
+                return new Views.User(user, _Context);
             }
             catch (Exception ex)
             {

@@ -1,7 +1,11 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
+
 namespace PandaTime.UserCatalog.Models
 {
-    public class CoreObject
+    public class BaseObject
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -22,6 +26,7 @@ namespace PandaTime.UserCatalog.Models
         /// </summary>
         /// <value>The last modified.</value>
         [Required]
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime LastModified { get; set; }
 
         /// <summary>

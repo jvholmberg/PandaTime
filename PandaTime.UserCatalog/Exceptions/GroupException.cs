@@ -1,9 +1,19 @@
 ﻿using System;
 namespace PandaTime.UserCatalog.Exceptions
 {
-    public class GroupException
+    public class GroupException : Exception
     {
         public GroupException()
+        {
+        }
+
+        public GroupException(string message)
+            : base(message)
+        {
+        }
+
+        public GroupException(string message, Exception innerException)
+            : base(message, innerException)
         {
         }
     }

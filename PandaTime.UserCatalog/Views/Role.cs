@@ -1,10 +1,9 @@
 ﻿using System;
 namespace PandaTime.UserCatalog.Views
 {
-    public class Role
+    public class Role : BaseObject
     {
-        public Role()
-        {
-        }
+        public string Name { get; set; }
+        public bool Default { get; set; }
     }
 }
