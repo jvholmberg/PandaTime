@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PandaTime.Core", "PandaTime
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PandaTime.UserCatalog", "PandaTime.UserCatalog\PandaTime.UserCatalog.csproj", "{E63CABFC-5A68-4352-9DEF-9D3A19D2F46A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PandaTime.TimeCatalog", "PandaTime.TimeCatalog\PandaTime.TimeCatalog.csproj", "{74D095F1-1E22-4072-8A4F-734A7C806BF8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,5 +21,9 @@ Global
 		{E63CABFC-5A68-4352-9DEF-9D3A19D2F46A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E63CABFC-5A68-4352-9DEF-9D3A19D2F46A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E63CABFC-5A68-4352-9DEF-9D3A19D2F46A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74D095F1-1E22-4072-8A4F-734A7C806BF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74D095F1-1E22-4072-8A4F-734A7C806BF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74D095F1-1E22-4072-8A4F-734A7C806BF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74D095F1-1E22-4072-8A4F-734A7C806BF8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
