@@ -20,43 +20,31 @@ namespace PandaTime.UserCatalog.Services
             try
             {
                 var users = _Context.Users.ToList();
-                return users.Select(x => new Views.User(x, _Context));
+                return users.Select(usr => new Views.User(usr));
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
-        public Views.User GetById(int id)
-        {
 
+        public async Task<Views.User> GetById(int id) {
             try
             {
-                var user = _Context.Users.Find(id);
-                return new Views.User(user, _Context);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        public async Task<Views.User> Test(int id) {
-            
-            var user = await _Context.Users
+                var user = await _Context.Users
                 .Include(usr => usr.Language)
                 .Include(usr => usr.Memberships)
                     .ThenInclude(mem => mem.Group)
                         .ThenInclude(grp => grp.Memberships)
                             .ThenInclude(mem => mem.Role)
                 .SingleAsync(usr => usr.Id == id);
-            
-
-            
-
-
-
-            return null;
+                
+                return new Views.User(user);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

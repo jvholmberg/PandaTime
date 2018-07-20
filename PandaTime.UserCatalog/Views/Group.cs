@@ -11,35 +11,21 @@ namespace PandaTime.UserCatalog.Views
         public string Role { get; set; }
         public List<Views.Post> Posts { get; set; }
 
-        public Group(Models.Group model, string role)
+        public Group(Models.Group model, Models.Role role)
         {
             Id = model.Id;
             Name = model.Name;
             Description = model.Description;
-            Role = role;
-            CreatedAt = model.CreatedAt;
-            LastModified = model.LastModified;
-        }
-
-        public Group(Models.Group model, Models.BaseContext context)
-        {
-            Id = model.Id;
-            Name = model.Name;
-            Description = model.Description;
+            Role = role?.Name;
             CreatedAt = model.CreatedAt;
             LastModified = model.LastModified;
 
-            if (context != null)
+            if (model.Posts != null)
             {
-                var posts = context
-                    .Posts
-                    .ToList()
-                    .Where(x => x.GroupId == model.Id);
-
                 Posts = new List<Post>();
-                foreach (Models.Post post in posts)
+                foreach (var post in model.Posts)
                 {
-                    Posts.Add(new Views.Post(post, context));
+                    Posts.Add(new Views.Post(post));
                 }
             }
         }

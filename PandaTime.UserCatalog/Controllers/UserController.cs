@@ -37,7 +37,7 @@ namespace PandaTime.UserCatalog.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var user = _UserService.Test(id);
+            var user = await _UserService.GetById(id);
 
             if (user == null)
             {

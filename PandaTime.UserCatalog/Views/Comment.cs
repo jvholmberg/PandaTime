@@ -6,20 +6,16 @@ namespace PandaTime.UserCatalog.Views
         public string Text { get; set; }
         public User Author { get; set; }
 
-        public Comment(Models.Comment model, Models.BaseContext context)
+        public Comment(Models.Comment model)
         {
             Id = model.Id;
             Text = model.Text;
             CreatedAt = model.CreatedAt;
             LastModified = model.LastModified;
 
-            if (context != null)
+            if (model.Author != null)
             {
-                var author = context
-                    .Users
-                    .Find(model.AuthorId);
-
-                Author = new Views.User(author);
+                Author = new Views.User(model.Author);
             }
         }
     }

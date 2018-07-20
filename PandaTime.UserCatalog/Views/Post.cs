@@ -11,7 +11,7 @@ namespace PandaTime.UserCatalog.Views
         public User Author { get; set; }
         public List<Comment> Comments { get; set; }
 
-        public Post(Models.Post model, Models.BaseContext context)
+        public Post(Models.Post model)
         {
             Id = model.Id;
             Title = model.Title;
@@ -19,23 +19,17 @@ namespace PandaTime.UserCatalog.Views
             CreatedAt = model.CreatedAt;
             LastModified = model.LastModified;
 
-            if (context != null)
+            if (model.Author != null)
             {
-                var author = context
-                    .Users
-                    .Find(model.AuthorId);
+                Author = new Views.User(model.Author);
+            }
 
-                Author = new Views.User(author);
-
-                var comments = context
-                    .Comments
-                    .ToList()
-                    .Where(x => x.PostId == model.Id);
-
+            if (model.Comments != null)
+            {
                 Comments = new List<Comment>();
-                foreach (Models.Comment comment in comments)
+                foreach (var comment in model.Comments)
                 {
-                    Comments.Add(new Views.Comment(comment, context));
+                    Comments.Add(new Views.Comment(comment));
                 }
             }
         }
