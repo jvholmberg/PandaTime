@@ -31,7 +31,6 @@ namespace PandaTime.UserCatalog.Services
                     CreatedAt = DateTime.UtcNow
                 });
 
-
                 var user = _Context.Users.Add(new Models.User
                 {
                     Activated = false,
@@ -43,15 +42,10 @@ namespace PandaTime.UserCatalog.Services
                     CreatedAt = DateTime.UtcNow
                 });
 
-                await _Context.SaveChangesAsync();
-
-                var dbGroup = group.GetDatabaseValues().ToObject() as Models.Group;
-                var dbUser = user.GetDatabaseValues().ToObject() as Models.User;
-
                 _Context.Memberships.Add(new Models.Membership
                 {
-                    GroupId = dbGroup.Id,
-                    UserId = dbUser.Id,
+                    GroupId = group.Entity.Id,
+                    UserId = user.Entity.Id,
                     RoleId = role.Id,
                     CreatedAt = DateTime.UtcNow
                 });
