@@ -17,7 +17,7 @@ namespace PandaTime.UserCatalog.Models
         /// Gets or sets the group.
         /// </summary>
         /// <value>The group.</value>
-        public Group Group { get; set; }
+        public virtual Group Group { get; set; }
 
         /// <summary>
         /// Gets or sets the user identifier.
@@ -30,7 +30,7 @@ namespace PandaTime.UserCatalog.Models
         /// Gets or sets the user.
         /// </summary>
         /// <value>The user.</value>
-        public User User { get; set; }
+        public virtual User User { get; set; }
 
         /// <summary>
         /// Gets or sets the role identifier.
@@ -43,7 +43,7 @@ namespace PandaTime.UserCatalog.Models
         /// Gets or sets the type.
         /// </summary>
         /// <value>The type.</value>
-        public Role Role { get; set; }
+        public virtual Role Role { get; set; }
 
         public static void SetupModel(ModelBuilder modelBuilder)
         {

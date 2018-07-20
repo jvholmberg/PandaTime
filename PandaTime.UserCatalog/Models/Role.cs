@@ -19,7 +19,7 @@ namespace PandaTime.UserCatalog.Models
         /// Gets or sets the users.
         /// </summary>
         /// <value>The users.</value>
-        public ICollection<Membership> Memberships { get; set; }
+        public virtual ICollection<Membership> Memberships { get; set; }
 
         public static void SetupModel(ModelBuilder modelBuilder)
         {

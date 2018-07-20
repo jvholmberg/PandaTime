@@ -31,7 +31,7 @@ namespace PandaTime.UserCatalog.Models
         /// Gets or sets the users.
         /// </summary>
         /// <value>The users.</value>
-        public ICollection<User> Users { get; set; }
+        public virtual ICollection<User> Users { get; set; }
 
         public static void ConfigureTable(ModelBuilder modelBuilder)
         {

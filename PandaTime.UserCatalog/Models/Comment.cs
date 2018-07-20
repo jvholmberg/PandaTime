@@ -38,7 +38,7 @@ namespace PandaTime.UserCatalog.Models
         /// Gets or sets the author.
         /// </summary>
         /// <value>The author.</value>
-        public User Author { get; set; }
+        public virtual User Author { get; set; }
 
         public static void SetupModel(ModelBuilder modelBuilder)
         {

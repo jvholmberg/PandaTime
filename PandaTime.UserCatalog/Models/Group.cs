@@ -32,13 +32,13 @@ namespace PandaTime.UserCatalog.Models
         /// Gets or sets the memberships.
         /// </summary>
         /// <value>The memberships.</value>
-        public ICollection<Membership> Memberships { get; set; }
+        public virtual ICollection<Membership> Memberships { get; set; }
 
         /// <summary>
         /// Gets or sets the posts.
         /// </summary>
         /// <value>The posts.</value>
-        public ICollection<Post> Posts { get; set; }
+        public virtual ICollection<Post> Posts { get; set; }
 
         public static void SetupModel(ModelBuilder modelBuilder)
         {

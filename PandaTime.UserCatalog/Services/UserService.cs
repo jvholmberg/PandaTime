@@ -40,5 +40,23 @@ namespace PandaTime.UserCatalog.Services
                 throw ex;
             }
         }
+
+        public async Task<Views.User> Test(int id) {
+            
+            var user = await _Context.Users
+                .Include(usr => usr.Language)
+                .Include(usr => usr.Memberships)
+                    .ThenInclude(mem => mem.Group)
+                        .ThenInclude(grp => grp.Memberships)
+                            .ThenInclude(mem => mem.Role)
+                .SingleAsync(usr => usr.Id == id);
+            
+
+            
+
+
+
+            return null;
+        }
     }
 }
