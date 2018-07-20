@@ -12,20 +12,19 @@ namespace PandaTime.UserCatalog.Models
         /// </summary>
         /// <value>The identifier.</value>
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         /// <summary>
         /// Gets or sets the created at.
         /// </summary>
         /// <value>The created at.</value>
-        [Required]
         public DateTime CreatedAt { get; set; }
 
         /// <summary>
         /// Gets or sets the last modified.
         /// </summary>
         /// <value>The last modified.</value>
-        [Required]
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime LastModified { get; set; }
 

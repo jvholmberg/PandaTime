@@ -15,11 +15,59 @@ namespace PandaTime.UserCatalog.Services
             _Context = context;
         }
 
-        public IEnumerable<Views.User> GetAll()
+        public async Task<Views.User> Create(Views.User view)
         {
             try
             {
-                var users = _Context.Users.ToList();
+                var language = await _Context.Languages
+                    .SingleAsync(lng => lng.Code == view.Language);
+
+                var role = await _Context.Roles
+                    .SingleAsync(rle => rle.Name == "Moderator");
+                
+                _Context.Groups.Add(new Models.Group
+                {
+                    Personal = true,
+                    CreatedAt = DateTime.UtcNow
+                });
+
+                _Context.Users.Add(new Models.User
+                {
+                    Activated = false,
+                    Email = view.Email,
+                    Password = view.Password,
+                    FirstName = view.FirstName,
+                    LastName = view.LastName,
+                    LanguageId = language.Id,
+                    CreatedAt = DateTime.UtcNow
+                });
+
+                var foo = _Context.Groups.Local.First();
+
+                _Context.Memberships.Add(new Models.Membership
+                {
+                    GroupId = _Context.Groups.Local.First().Id,
+                    UserId = _Context.Users.Local.First().Id,
+                    RoleId = role.Id,
+                    CreatedAt = DateTime.UtcNow
+                });
+
+                await _Context.SaveChangesAsync();
+
+                return null;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<IEnumerable<Views.User>> GetAll()
+        {
+            try
+            {
+                var users = await _Context.Users.ToListAsync();
                 return users.Select(usr => new Views.User(usr));
             }
             catch (Exception ex)
@@ -45,6 +93,11 @@ namespace PandaTime.UserCatalog.Services
             {
                 throw ex;
             }
+        }
+
+        public bool Exists(int id)
+        {
+            return _Context.Users.Any(usr => usr.Id == id);
         }
     }
 }

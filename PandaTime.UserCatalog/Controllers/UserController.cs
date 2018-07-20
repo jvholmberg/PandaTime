@@ -24,9 +24,20 @@ namespace PandaTime.UserCatalog.Controllers
 
         // GET api/user
         [HttpGet]
-        public IEnumerable<Views.User> GetAll()
+        public async Task<IActionResult> GetAll()
         {
-            return _UserService.GetAll();
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var users = await _UserService.GetAll();
+
+            if (users == null)
+            {
+                return NotFound();
+            }
+            return Ok(users);
         }
 
         // GET api/user/5
@@ -37,29 +48,29 @@ namespace PandaTime.UserCatalog.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var user = await _UserService.GetById(id);
 
-            if (user == null)
+            if (!_UserService.Exists(id))
             {
                 return NotFound();
             }
+
+            var user = await _UserService.GetById(id);
 
             return Ok(user);
         }
 
         // POST api/user
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] User user)
+        public async Task<IActionResult> Post([FromBody] Views.User view)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            _Context.Users.Add(user);
-            await _Context.SaveChangesAsync();
+            var user = await _UserService.Create(view);
 
-            return CreatedAtAction("Post", new { id = user.Id }, user);
+            return CreatedAtAction("Post", user);
 
         }
 
@@ -85,7 +96,7 @@ namespace PandaTime.UserCatalog.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!UserExists(id))
+                if (!_UserService.Exists(id))
                 {
                     return NotFound();
                 }
@@ -117,11 +128,6 @@ namespace PandaTime.UserCatalog.Controllers
             await _Context.SaveChangesAsync();
 
             return Ok(user);
-        }
-
-        private bool UserExists(int id)
-        {
-            return _Context.Users.Any(usr => usr.Id == id);
         }
     }
 }

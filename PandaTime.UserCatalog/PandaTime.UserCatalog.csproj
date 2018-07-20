@@ -39,5 +39,8 @@
     <Compile Remove="Services\GroupService %28copy%29.cs" />
     <Compile Remove="Controllers\UserController %28copy%29.cs" />
     <Compile Remove="Controllers\ActionCatalog.cs" />
+    <Compile Remove="Migrations\20180707113831_migration.cs" />
+    <Compile Remove="Migrations\BaseContextModelSnapshot.cs" />
+    <Compile Remove="Migrations\20180720113412_migration.cs" />
   </ItemGroup>
 </Project>

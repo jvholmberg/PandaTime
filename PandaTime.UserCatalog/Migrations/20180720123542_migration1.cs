@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace PandaTime.UserCatalog.Migrations
 {
-    public partial class migration : Migration
+    public partial class migration1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -178,12 +178,25 @@ namespace PandaTime.UserCatalog.Migrations
                 });
 
             migrationBuilder.InsertData(
+                table: "Group",
+                columns: new[] { "Id", "CreatedAt", "Description", "LastModified", "Name", "Personal" },
+                values: new object[,]
+                {
+                    { 1, new DateTime(2018, 7, 20, 12, 35, 41, 739, DateTimeKind.Utc), null, new DateTime(2018, 7, 20, 12, 35, 41, 739, DateTimeKind.Utc), null, true },
+                    { 2, new DateTime(2018, 7, 20, 12, 35, 41, 739, DateTimeKind.Utc), null, new DateTime(2018, 7, 20, 12, 35, 41, 739, DateTimeKind.Utc), null, true },
+                    { 3, new DateTime(2018, 7, 20, 12, 35, 41, 739, DateTimeKind.Utc), null, new DateTime(2018, 7, 20, 12, 35, 41, 739, DateTimeKind.Utc), null, true },
+                    { 4, new DateTime(2018, 7, 20, 12, 35, 41, 739, DateTimeKind.Utc), null, new DateTime(2018, 7, 20, 12, 35, 41, 739, DateTimeKind.Utc), null, true },
+                    { 5, new DateTime(2018, 7, 20, 12, 35, 41, 739, DateTimeKind.Utc), null, new DateTime(2018, 7, 20, 12, 35, 41, 739, DateTimeKind.Utc), null, true },
+                    { 6, new DateTime(2018, 7, 20, 12, 35, 41, 739, DateTimeKind.Utc), "This is a public group", new DateTime(2018, 7, 20, 12, 35, 41, 739, DateTimeKind.Utc), "Public Group", false }
+                });
+
+            migrationBuilder.InsertData(
                 table: "Language",
                 columns: new[] { "Id", "Code", "CreatedAt", "Default", "LastModified", "Name" },
                 values: new object[,]
                 {
-                    { 1, "en", new DateTime(2018, 7, 7, 11, 38, 30, 746, DateTimeKind.Utc), true, new DateTime(2018, 7, 7, 11, 38, 30, 746, DateTimeKind.Utc), "English" },
-                    { 2, "sv", new DateTime(2018, 7, 7, 11, 38, 30, 746, DateTimeKind.Utc), false, new DateTime(2018, 7, 7, 11, 38, 30, 746, DateTimeKind.Utc), "Swedish" }
+                    { 1, "en", new DateTime(2018, 7, 20, 12, 35, 41, 741, DateTimeKind.Utc), true, new DateTime(2018, 7, 20, 12, 35, 41, 741, DateTimeKind.Utc), "English" },
+                    { 2, "sv", new DateTime(2018, 7, 20, 12, 35, 41, 741, DateTimeKind.Utc), false, new DateTime(2018, 7, 20, 12, 35, 41, 741, DateTimeKind.Utc), "Swedish" }
                 });
 
             migrationBuilder.InsertData(
@@ -191,10 +204,10 @@ namespace PandaTime.UserCatalog.Migrations
                 columns: new[] { "Id", "CreatedAt", "LastModified", "Name" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2018, 7, 7, 11, 38, 30, 746, DateTimeKind.Utc), new DateTime(2018, 7, 7, 11, 38, 30, 746, DateTimeKind.Utc), "Admin" },
-                    { 2, new DateTime(2018, 7, 7, 11, 38, 30, 746, DateTimeKind.Utc), new DateTime(2018, 7, 7, 11, 38, 30, 746, DateTimeKind.Utc), "Support" },
-                    { 3, new DateTime(2018, 7, 7, 11, 38, 30, 746, DateTimeKind.Utc), new DateTime(2018, 7, 7, 11, 38, 30, 746, DateTimeKind.Utc), "Moderator" },
-                    { 4, new DateTime(2018, 7, 7, 11, 38, 30, 746, DateTimeKind.Utc), new DateTime(2018, 7, 7, 11, 38, 30, 746, DateTimeKind.Utc), "User" }
+                    { 1, new DateTime(2018, 7, 20, 12, 35, 41, 742, DateTimeKind.Utc), new DateTime(2018, 7, 20, 12, 35, 41, 742, DateTimeKind.Utc), "Admin" },
+                    { 2, new DateTime(2018, 7, 20, 12, 35, 41, 742, DateTimeKind.Utc), new DateTime(2018, 7, 20, 12, 35, 41, 742, DateTimeKind.Utc), "Support" },
+                    { 3, new DateTime(2018, 7, 20, 12, 35, 41, 742, DateTimeKind.Utc), new DateTime(2018, 7, 20, 12, 35, 41, 742, DateTimeKind.Utc), "Moderator" },
+                    { 4, new DateTime(2018, 7, 20, 12, 35, 41, 742, DateTimeKind.Utc), new DateTime(2018, 7, 20, 12, 35, 41, 742, DateTimeKind.Utc), "User" }
                 });
 
             migrationBuilder.InsertData(
@@ -202,11 +215,25 @@ namespace PandaTime.UserCatalog.Migrations
                 columns: new[] { "Id", "Activated", "CreatedAt", "Email", "FirstName", "LanguageId", "LastModified", "LastName", "Password" },
                 values: new object[,]
                 {
-                    { 1, true, new DateTime(2018, 7, 7, 11, 38, 30, 747, DateTimeKind.Utc), "admin@forkyfork.com", "Admin", 1, new DateTime(2018, 7, 7, 11, 38, 30, 747, DateTimeKind.Utc), "User", "123" },
-                    { 2, true, new DateTime(2018, 7, 7, 11, 38, 30, 747, DateTimeKind.Utc), "support@forkyfork.com", "Support", 1, new DateTime(2018, 7, 7, 11, 38, 30, 747, DateTimeKind.Utc), "User", "123" },
-                    { 3, true, new DateTime(2018, 7, 7, 11, 38, 30, 747, DateTimeKind.Utc), "moderator@forkyfork.com", "Moderator", 1, new DateTime(2018, 7, 7, 11, 38, 30, 747, DateTimeKind.Utc), "User", "123" },
-                    { 4, true, new DateTime(2018, 7, 7, 11, 38, 30, 747, DateTimeKind.Utc), "user1@forkyfork.com", "User", 1, new DateTime(2018, 7, 7, 11, 38, 30, 747, DateTimeKind.Utc), "Active", "123" },
-                    { 5, false, new DateTime(2018, 7, 7, 11, 38, 30, 747, DateTimeKind.Utc), "user2@forkyfork.com", "User", 1, new DateTime(2018, 7, 7, 11, 38, 30, 747, DateTimeKind.Utc), "Inactive", "123" }
+                    { 1, true, new DateTime(2018, 7, 20, 12, 35, 41, 741, DateTimeKind.Utc), "admin@forkyfork.com", "Admin", 1, new DateTime(2018, 7, 20, 12, 35, 41, 741, DateTimeKind.Utc), "User", "123" },
+                    { 2, true, new DateTime(2018, 7, 20, 12, 35, 41, 741, DateTimeKind.Utc), "support@forkyfork.com", "Support", 1, new DateTime(2018, 7, 20, 12, 35, 41, 741, DateTimeKind.Utc), "User", "123" },
+                    { 3, true, new DateTime(2018, 7, 20, 12, 35, 41, 741, DateTimeKind.Utc), "moderator@forkyfork.com", "Moderator", 1, new DateTime(2018, 7, 20, 12, 35, 41, 741, DateTimeKind.Utc), "User", "123" },
+                    { 4, true, new DateTime(2018, 7, 20, 12, 35, 41, 741, DateTimeKind.Utc), "user1@forkyfork.com", "User", 1, new DateTime(2018, 7, 20, 12, 35, 41, 741, DateTimeKind.Utc), "Active", "123" },
+                    { 5, false, new DateTime(2018, 7, 20, 12, 35, 41, 741, DateTimeKind.Utc), "user2@forkyfork.com", "User", 1, new DateTime(2018, 7, 20, 12, 35, 41, 741, DateTimeKind.Utc), "Inactive", "123" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Membership",
+                columns: new[] { "Id", "CreatedAt", "GroupId", "LastModified", "RoleId", "UserId" },
+                values: new object[,]
+                {
+                    { 1, new DateTime(2018, 7, 20, 12, 35, 41, 742, DateTimeKind.Utc), 1, new DateTime(2018, 7, 20, 12, 35, 41, 742, DateTimeKind.Utc), 1, 1 },
+                    { 2, new DateTime(2018, 7, 20, 12, 35, 41, 742, DateTimeKind.Utc), 2, new DateTime(2018, 7, 20, 12, 35, 41, 742, DateTimeKind.Utc), 2, 2 },
+                    { 3, new DateTime(2018, 7, 20, 12, 35, 41, 742, DateTimeKind.Utc), 3, new DateTime(2018, 7, 20, 12, 35, 41, 742, DateTimeKind.Utc), 3, 3 },
+                    { 4, new DateTime(2018, 7, 20, 12, 35, 41, 742, DateTimeKind.Utc), 4, new DateTime(2018, 7, 20, 12, 35, 41, 742, DateTimeKind.Utc), 4, 4 },
+                    { 6, new DateTime(2018, 7, 20, 12, 35, 41, 742, DateTimeKind.Utc), 6, new DateTime(2018, 7, 20, 12, 35, 41, 742, DateTimeKind.Utc), 1, 4 },
+                    { 5, new DateTime(2018, 7, 20, 12, 35, 41, 742, DateTimeKind.Utc), 5, new DateTime(2018, 7, 20, 12, 35, 41, 742, DateTimeKind.Utc), 4, 5 },
+                    { 7, new DateTime(2018, 7, 20, 12, 35, 41, 742, DateTimeKind.Utc), 6, new DateTime(2018, 7, 20, 12, 35, 41, 742, DateTimeKind.Utc), 4, 5 }
                 });
 
             migrationBuilder.CreateIndex(
