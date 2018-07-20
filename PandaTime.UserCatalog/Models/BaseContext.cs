@@ -33,13 +33,11 @@ namespace PandaTime.UserCatalog.Models
             Role.CreateSeed(modelBuilder);
             Post.CreateSeed(modelBuilder);
             Comment.CreateSeed(modelBuilder);
-
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-
         }
     }
 }

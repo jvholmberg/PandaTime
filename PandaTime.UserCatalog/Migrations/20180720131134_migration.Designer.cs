@@ -10,8 +10,8 @@ using PandaTime.UserCatalog.Models;
 namespace PandaTime.UserCatalog.Migrations
 {
     [DbContext(typeof(BaseContext))]
-    [Migration("20180720123542_migration1")]
-    partial class migration1
+    [Migration("20180720131134_migration")]
+    partial class migration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -77,12 +77,12 @@ namespace PandaTime.UserCatalog.Migrations
                     b.ToTable("Group");
 
                     b.HasData(
-                        new { Id = 1, CreatedAt = new DateTime(2018, 7, 20, 12, 35, 41, 739, DateTimeKind.Utc), LastModified = new DateTime(2018, 7, 20, 12, 35, 41, 739, DateTimeKind.Utc), Personal = true },
-                        new { Id = 2, CreatedAt = new DateTime(2018, 7, 20, 12, 35, 41, 739, DateTimeKind.Utc), LastModified = new DateTime(2018, 7, 20, 12, 35, 41, 739, DateTimeKind.Utc), Personal = true },
-                        new { Id = 3, CreatedAt = new DateTime(2018, 7, 20, 12, 35, 41, 739, DateTimeKind.Utc), LastModified = new DateTime(2018, 7, 20, 12, 35, 41, 739, DateTimeKind.Utc), Personal = true },
-                        new { Id = 4, CreatedAt = new DateTime(2018, 7, 20, 12, 35, 41, 739, DateTimeKind.Utc), LastModified = new DateTime(2018, 7, 20, 12, 35, 41, 739, DateTimeKind.Utc), Personal = true },
-                        new { Id = 5, CreatedAt = new DateTime(2018, 7, 20, 12, 35, 41, 739, DateTimeKind.Utc), LastModified = new DateTime(2018, 7, 20, 12, 35, 41, 739, DateTimeKind.Utc), Personal = true },
-                        new { Id = 6, CreatedAt = new DateTime(2018, 7, 20, 12, 35, 41, 739, DateTimeKind.Utc), Description = "This is a public group", LastModified = new DateTime(2018, 7, 20, 12, 35, 41, 739, DateTimeKind.Utc), Name = "Public Group", Personal = false }
+                        new { Id = 1, CreatedAt = new DateTime(2018, 7, 20, 13, 11, 34, 523, DateTimeKind.Utc), LastModified = new DateTime(2018, 7, 20, 13, 11, 34, 523, DateTimeKind.Utc), Personal = true },
+                        new { Id = 2, CreatedAt = new DateTime(2018, 7, 20, 13, 11, 34, 523, DateTimeKind.Utc), LastModified = new DateTime(2018, 7, 20, 13, 11, 34, 523, DateTimeKind.Utc), Personal = true },
+                        new { Id = 3, CreatedAt = new DateTime(2018, 7, 20, 13, 11, 34, 523, DateTimeKind.Utc), LastModified = new DateTime(2018, 7, 20, 13, 11, 34, 523, DateTimeKind.Utc), Personal = true },
+                        new { Id = 4, CreatedAt = new DateTime(2018, 7, 20, 13, 11, 34, 523, DateTimeKind.Utc), LastModified = new DateTime(2018, 7, 20, 13, 11, 34, 523, DateTimeKind.Utc), Personal = true },
+                        new { Id = 5, CreatedAt = new DateTime(2018, 7, 20, 13, 11, 34, 523, DateTimeKind.Utc), LastModified = new DateTime(2018, 7, 20, 13, 11, 34, 523, DateTimeKind.Utc), Personal = true },
+                        new { Id = 6, CreatedAt = new DateTime(2018, 7, 20, 13, 11, 34, 523, DateTimeKind.Utc), Description = "This is a public group", LastModified = new DateTime(2018, 7, 20, 13, 11, 34, 523, DateTimeKind.Utc), Name = "Public Group", Personal = false }
                     );
                 });
 
@@ -112,8 +112,8 @@ namespace PandaTime.UserCatalog.Migrations
                     b.ToTable("Language");
 
                     b.HasData(
-                        new { Id = 1, Code = "en", CreatedAt = new DateTime(2018, 7, 20, 12, 35, 41, 741, DateTimeKind.Utc), Default = true, LastModified = new DateTime(2018, 7, 20, 12, 35, 41, 741, DateTimeKind.Utc), Name = "English" },
-                        new { Id = 2, Code = "sv", CreatedAt = new DateTime(2018, 7, 20, 12, 35, 41, 741, DateTimeKind.Utc), Default = false, LastModified = new DateTime(2018, 7, 20, 12, 35, 41, 741, DateTimeKind.Utc), Name = "Swedish" }
+                        new { Id = 1, Code = "en", CreatedAt = new DateTime(2018, 7, 20, 13, 11, 34, 524, DateTimeKind.Utc), Default = true, LastModified = new DateTime(2018, 7, 20, 13, 11, 34, 524, DateTimeKind.Utc), Name = "English" },
+                        new { Id = 2, Code = "sv", CreatedAt = new DateTime(2018, 7, 20, 13, 11, 34, 524, DateTimeKind.Utc), Default = false, LastModified = new DateTime(2018, 7, 20, 13, 11, 34, 524, DateTimeKind.Utc), Name = "Swedish" }
                     );
                 });
 
@@ -147,13 +147,13 @@ namespace PandaTime.UserCatalog.Migrations
                     b.ToTable("Membership");
 
                     b.HasData(
-                        new { Id = 1, CreatedAt = new DateTime(2018, 7, 20, 12, 35, 41, 742, DateTimeKind.Utc), GroupId = 1, LastModified = new DateTime(2018, 7, 20, 12, 35, 41, 742, DateTimeKind.Utc), RoleId = 1, UserId = 1 },
-                        new { Id = 2, CreatedAt = new DateTime(2018, 7, 20, 12, 35, 41, 742, DateTimeKind.Utc), GroupId = 2, LastModified = new DateTime(2018, 7, 20, 12, 35, 41, 742, DateTimeKind.Utc), RoleId = 2, UserId = 2 },
-                        new { Id = 3, CreatedAt = new DateTime(2018, 7, 20, 12, 35, 41, 742, DateTimeKind.Utc), GroupId = 3, LastModified = new DateTime(2018, 7, 20, 12, 35, 41, 742, DateTimeKind.Utc), RoleId = 3, UserId = 3 },
-                        new { Id = 4, CreatedAt = new DateTime(2018, 7, 20, 12, 35, 41, 742, DateTimeKind.Utc), GroupId = 4, LastModified = new DateTime(2018, 7, 20, 12, 35, 41, 742, DateTimeKind.Utc), RoleId = 4, UserId = 4 },
-                        new { Id = 5, CreatedAt = new DateTime(2018, 7, 20, 12, 35, 41, 742, DateTimeKind.Utc), GroupId = 5, LastModified = new DateTime(2018, 7, 20, 12, 35, 41, 742, DateTimeKind.Utc), RoleId = 4, UserId = 5 },
-                        new { Id = 6, CreatedAt = new DateTime(2018, 7, 20, 12, 35, 41, 742, DateTimeKind.Utc), GroupId = 6, LastModified = new DateTime(2018, 7, 20, 12, 35, 41, 742, DateTimeKind.Utc), RoleId = 1, UserId = 4 },
-                        new { Id = 7, CreatedAt = new DateTime(2018, 7, 20, 12, 35, 41, 742, DateTimeKind.Utc), GroupId = 6, LastModified = new DateTime(2018, 7, 20, 12, 35, 41, 742, DateTimeKind.Utc), RoleId = 4, UserId = 5 }
+                        new { Id = 1, CreatedAt = new DateTime(2018, 7, 20, 13, 11, 34, 525, DateTimeKind.Utc), GroupId = 1, LastModified = new DateTime(2018, 7, 20, 13, 11, 34, 525, DateTimeKind.Utc), RoleId = 1, UserId = 1 },
+                        new { Id = 2, CreatedAt = new DateTime(2018, 7, 20, 13, 11, 34, 525, DateTimeKind.Utc), GroupId = 2, LastModified = new DateTime(2018, 7, 20, 13, 11, 34, 525, DateTimeKind.Utc), RoleId = 2, UserId = 2 },
+                        new { Id = 3, CreatedAt = new DateTime(2018, 7, 20, 13, 11, 34, 525, DateTimeKind.Utc), GroupId = 3, LastModified = new DateTime(2018, 7, 20, 13, 11, 34, 525, DateTimeKind.Utc), RoleId = 3, UserId = 3 },
+                        new { Id = 4, CreatedAt = new DateTime(2018, 7, 20, 13, 11, 34, 525, DateTimeKind.Utc), GroupId = 4, LastModified = new DateTime(2018, 7, 20, 13, 11, 34, 525, DateTimeKind.Utc), RoleId = 4, UserId = 4 },
+                        new { Id = 5, CreatedAt = new DateTime(2018, 7, 20, 13, 11, 34, 525, DateTimeKind.Utc), GroupId = 5, LastModified = new DateTime(2018, 7, 20, 13, 11, 34, 525, DateTimeKind.Utc), RoleId = 4, UserId = 5 },
+                        new { Id = 6, CreatedAt = new DateTime(2018, 7, 20, 13, 11, 34, 525, DateTimeKind.Utc), GroupId = 6, LastModified = new DateTime(2018, 7, 20, 13, 11, 34, 525, DateTimeKind.Utc), RoleId = 1, UserId = 4 },
+                        new { Id = 7, CreatedAt = new DateTime(2018, 7, 20, 13, 11, 34, 525, DateTimeKind.Utc), GroupId = 6, LastModified = new DateTime(2018, 7, 20, 13, 11, 34, 525, DateTimeKind.Utc), RoleId = 4, UserId = 5 }
                     );
                 });
 
@@ -213,10 +213,10 @@ namespace PandaTime.UserCatalog.Migrations
                     b.ToTable("Role");
 
                     b.HasData(
-                        new { Id = 1, CreatedAt = new DateTime(2018, 7, 20, 12, 35, 41, 742, DateTimeKind.Utc), LastModified = new DateTime(2018, 7, 20, 12, 35, 41, 742, DateTimeKind.Utc), Name = "Admin" },
-                        new { Id = 2, CreatedAt = new DateTime(2018, 7, 20, 12, 35, 41, 742, DateTimeKind.Utc), LastModified = new DateTime(2018, 7, 20, 12, 35, 41, 742, DateTimeKind.Utc), Name = "Support" },
-                        new { Id = 3, CreatedAt = new DateTime(2018, 7, 20, 12, 35, 41, 742, DateTimeKind.Utc), LastModified = new DateTime(2018, 7, 20, 12, 35, 41, 742, DateTimeKind.Utc), Name = "Moderator" },
-                        new { Id = 4, CreatedAt = new DateTime(2018, 7, 20, 12, 35, 41, 742, DateTimeKind.Utc), LastModified = new DateTime(2018, 7, 20, 12, 35, 41, 742, DateTimeKind.Utc), Name = "User" }
+                        new { Id = 1, CreatedAt = new DateTime(2018, 7, 20, 13, 11, 34, 525, DateTimeKind.Utc), LastModified = new DateTime(2018, 7, 20, 13, 11, 34, 525, DateTimeKind.Utc), Name = "Admin" },
+                        new { Id = 2, CreatedAt = new DateTime(2018, 7, 20, 13, 11, 34, 525, DateTimeKind.Utc), LastModified = new DateTime(2018, 7, 20, 13, 11, 34, 525, DateTimeKind.Utc), Name = "Support" },
+                        new { Id = 3, CreatedAt = new DateTime(2018, 7, 20, 13, 11, 34, 525, DateTimeKind.Utc), LastModified = new DateTime(2018, 7, 20, 13, 11, 34, 525, DateTimeKind.Utc), Name = "Moderator" },
+                        new { Id = 4, CreatedAt = new DateTime(2018, 7, 20, 13, 11, 34, 525, DateTimeKind.Utc), LastModified = new DateTime(2018, 7, 20, 13, 11, 34, 525, DateTimeKind.Utc), Name = "User" }
                     );
                 });
 
@@ -258,11 +258,11 @@ namespace PandaTime.UserCatalog.Migrations
                     b.ToTable("User");
 
                     b.HasData(
-                        new { Id = 1, Activated = true, CreatedAt = new DateTime(2018, 7, 20, 12, 35, 41, 741, DateTimeKind.Utc), Email = "admin@forkyfork.com", FirstName = "Admin", LanguageId = 1, LastModified = new DateTime(2018, 7, 20, 12, 35, 41, 741, DateTimeKind.Utc), LastName = "User", Password = "123" },
-                        new { Id = 2, Activated = true, CreatedAt = new DateTime(2018, 7, 20, 12, 35, 41, 741, DateTimeKind.Utc), Email = "support@forkyfork.com", FirstName = "Support", LanguageId = 1, LastModified = new DateTime(2018, 7, 20, 12, 35, 41, 741, DateTimeKind.Utc), LastName = "User", Password = "123" },
-                        new { Id = 3, Activated = true, CreatedAt = new DateTime(2018, 7, 20, 12, 35, 41, 741, DateTimeKind.Utc), Email = "moderator@forkyfork.com", FirstName = "Moderator", LanguageId = 1, LastModified = new DateTime(2018, 7, 20, 12, 35, 41, 741, DateTimeKind.Utc), LastName = "User", Password = "123" },
-                        new { Id = 4, Activated = true, CreatedAt = new DateTime(2018, 7, 20, 12, 35, 41, 741, DateTimeKind.Utc), Email = "user1@forkyfork.com", FirstName = "User", LanguageId = 1, LastModified = new DateTime(2018, 7, 20, 12, 35, 41, 741, DateTimeKind.Utc), LastName = "Active", Password = "123" },
-                        new { Id = 5, Activated = false, CreatedAt = new DateTime(2018, 7, 20, 12, 35, 41, 741, DateTimeKind.Utc), Email = "user2@forkyfork.com", FirstName = "User", LanguageId = 1, LastModified = new DateTime(2018, 7, 20, 12, 35, 41, 741, DateTimeKind.Utc), LastName = "Inactive", Password = "123" }
+                        new { Id = 1, Activated = true, CreatedAt = new DateTime(2018, 7, 20, 13, 11, 34, 524, DateTimeKind.Utc), Email = "admin@forkyfork.com", FirstName = "Admin", LanguageId = 1, LastModified = new DateTime(2018, 7, 20, 13, 11, 34, 524, DateTimeKind.Utc), LastName = "User", Password = "123" },
+                        new { Id = 2, Activated = true, CreatedAt = new DateTime(2018, 7, 20, 13, 11, 34, 524, DateTimeKind.Utc), Email = "support@forkyfork.com", FirstName = "Support", LanguageId = 1, LastModified = new DateTime(2018, 7, 20, 13, 11, 34, 524, DateTimeKind.Utc), LastName = "User", Password = "123" },
+                        new { Id = 3, Activated = true, CreatedAt = new DateTime(2018, 7, 20, 13, 11, 34, 524, DateTimeKind.Utc), Email = "moderator@forkyfork.com", FirstName = "Moderator", LanguageId = 1, LastModified = new DateTime(2018, 7, 20, 13, 11, 34, 524, DateTimeKind.Utc), LastName = "User", Password = "123" },
+                        new { Id = 4, Activated = true, CreatedAt = new DateTime(2018, 7, 20, 13, 11, 34, 524, DateTimeKind.Utc), Email = "user1@forkyfork.com", FirstName = "User", LanguageId = 1, LastModified = new DateTime(2018, 7, 20, 13, 11, 34, 524, DateTimeKind.Utc), LastName = "Active", Password = "123" },
+                        new { Id = 5, Activated = false, CreatedAt = new DateTime(2018, 7, 20, 13, 11, 34, 524, DateTimeKind.Utc), Email = "user2@forkyfork.com", FirstName = "User", LanguageId = 1, LastModified = new DateTime(2018, 7, 20, 13, 11, 34, 524, DateTimeKind.Utc), LastName = "Inactive", Password = "123" }
                     );
                 });
 

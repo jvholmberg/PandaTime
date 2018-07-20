@@ -25,13 +25,14 @@ namespace PandaTime.UserCatalog.Services
                 var role = await _Context.Roles
                     .SingleAsync(rle => rle.Name == "Moderator");
                 
-                _Context.Groups.Add(new Models.Group
+                var group = _Context.Groups.Add(new Models.Group
                 {
                     Personal = true,
                     CreatedAt = DateTime.UtcNow
                 });
 
-                _Context.Users.Add(new Models.User
+
+                var user = _Context.Users.Add(new Models.User
                 {
                     Activated = false,
                     Email = view.Email,
@@ -42,12 +43,15 @@ namespace PandaTime.UserCatalog.Services
                     CreatedAt = DateTime.UtcNow
                 });
 
-                var foo = _Context.Groups.Local.First();
+                await _Context.SaveChangesAsync();
+
+                var dbGroup = group.GetDatabaseValues().ToObject() as Models.Group;
+                var dbUser = user.GetDatabaseValues().ToObject() as Models.User;
 
                 _Context.Memberships.Add(new Models.Membership
                 {
-                    GroupId = _Context.Groups.Local.First().Id,
-                    UserId = _Context.Users.Local.First().Id,
+                    GroupId = dbGroup.Id,
+                    UserId = dbUser.Id,
                     RoleId = role.Id,
                     CreatedAt = DateTime.UtcNow
                 });
